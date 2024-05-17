@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Page</title>
+</head>
+<body>
+    <header><%- include("../../partials/header.ejs") %></header>
+    <h1>Hello From About Page</h1>
+    <div>
+        <h2>ID: <%= costs.id %></h2>
+        <h2>Name: <%= costs.name %></h2>
+        <h2>Cost: <%= costs.cost[0] %></h2>
+    </div>
+    <a href="/">Home</a>
+</body>
+</html>
