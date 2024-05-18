@@ -35,7 +35,7 @@ app.use("/api", apiRouter);
 app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
-  res.render("pages/home.ejs", { data });
+  res.render("pages/homepage.ejs", { data });
 });
 
 app.get("/:id", (req, res) => {
@@ -46,7 +46,7 @@ app.get("/:id", (req, res) => {
     return res.status(404).send("Product Not Found");
   }
 
-  res.render("pages/about.ejs", { newData });
+  res.render("pages/aboutpage.ejs", { newData });
 });
 
 app.listen(PORT, () => {
