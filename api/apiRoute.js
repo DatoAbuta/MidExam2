@@ -1,11 +1,9 @@
-const {Router} = require("express")
-const usersRouter = require("./users/userRoute")
-const productRouter = require("./porducts/productRoute")
-const { isAuth } = require("../middlewares2/isAuth")
+const { Router } = require("express");
+const usersRouter = require("./users/userRoute");
+const productRouter = require("./products/productRoute");
 
-const apiRouter = Router()
+const apiRouter = Router();
 
-apiRouter.use("/users",isAuth,usersRouter)
-apiRouter.use("/products",productRouter)
+apiRouter.use("/products", productRouter);
 
-module.exports = apiRouter
+module.exports = apiRouter;

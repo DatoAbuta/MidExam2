@@ -1,54 +1,54 @@
-const express = require("express")
-const apiRouter = require("./api/apiRoute")
-const { logger } = require("./middlewares2/logger")
-const app = express()
-const PORT = 3000
+const express = require("express");
+const apiRouter = require("./api/apiRoute");
+const app = express();
+const PORT = 3000;
 
-app.use(logger)
-const infoAboutCosts = 
-[
+const data = [
+  {
+    id: 2,
+    name: "Samsung",
+    price: "1200",
+    created: "2024-05-18T08:27:18.453Z",
+  },
+  {
+    id: 3,
+    name: "cigarette",
+    price: "25",
+    created: "2024-05-18T08:38:55.969Z",
+  },
+  {
+    id: 4,
+    name: "donaldduck",
+    price: "50",
+    created: "2024-05-18T08:39:01.237Z",
+  },
+  {
+    id: 5,
+    name: "bartyi",
+    price: "900",
+    created: "2024-05-18T12:22:22.894Z",
+  },
+];
 
-    {
-        id:1,
-        name:"NIKE Shoes",
-        cost:["1199$"]
-    },
-    {
-        id:2,
-        name:"Food",
-        cost:["2599$"]
-    },
-    {
-        id:3,
-        name:"car",
-        cost:["11199$"]
-    }
-]
+app.use("/api", apiRouter);
 
+app.set("view engine", "ejs");
 
-
-
-app.use("/api",apiRouter)
-app.set("view engine","ejs")
-app.get("/",(req,res) => {
-    res.render("pages/home.ejs",{infoAboutCosts})
-})
-app.get("/:id", (req, res) => {
-    const { id } = req.params;
-    const costs = infoAboutCosts.find((el) => el.id === Number(id));
-
-    if (!costs) {
-        return res.status(404).send("Cost not found");
-    }
-
-    res.render("pages/about.ejs", { costs });
+app.get("/", (req, res) => {
+  res.render("pages/home.ejs", { data });
 });
 
+app.get("/:id", (req, res) => {
+  const { id } = req.params;
+  const newData = data.find((el) => el.id === Number(id));
 
+  if (!newData) {
+    return res.status(404).send("Product Not Found");
+  }
 
+  res.render("pages/about.ejs", { newData });
+});
 
-
-
-app.listen(PORT,() => {
-    console.log(`server running on http://localhost:${PORT}`)
-})
+app.listen(PORT, () => {
+  console.log(`server running on http://localhost:${PORT}`);
+});

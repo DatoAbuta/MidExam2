@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <header style="display: flex; flex-direction: column; align-items: center;">
-        <%- include("../../partials/header.ejs") %>
-        <h1>Hello from home page EJS</h1>
-    </header>
-    <div style="display: flex; align-items: center; flex-direction: column;">
-        <% infoAboutCosts.forEach(el => { %>
-            <a href="/<%= el.id %>" style="text-decoration: none; color: inherit;">
-                <div style="border: 2px solid black; width: 200px; height: 200px; padding-inline: 15px; padding-block: 20px; cursor: pointer; margin-bottom: 20px;">
-                    <h2>ID: <%= el.id %></h2>
-                    <h2>Name: <%= el.name %></h2>
-                    <h2>Costs: <%= el.cost %></h2>
-                </div>
-            </a>
-        <% }) %>
+  </head>
+  <body>
+    <div style="display: flex; align-items: center; flex-direction: column">
+      <% data.forEach(el => { %>
+      <a href="/<%= el.id %>" style="text-decoration: none; color: inherit">
+        <div
+          style="
+            border: 2px solid black;
+            padding-inline: 15px;
+            padding-block: 20px;
+            cursor: pointer;
+            margin-bottom: 20px;
+          "
+        >
+          <h2>ID: <%= el.id %></h2>
+          <h2>Name: <%= el.name %></h2>
+          <h2>Costs: <%= el.price %></h2>
+        </div>
+      </a>
+      <% }) %>
     </div>
-</body>
+  </body>
 </html>

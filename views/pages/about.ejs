@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Page</title>
-</head>
-<body>
-    <header><%- include("../../partials/header.ejs") %></header>
-    <h1>Hello From About Page</h1>
-    <div>
-        <h2>ID: <%= costs.id %></h2>
-        <h2>Name: <%= costs.name %></h2>
-        <h2>Cost: <%= costs.cost[0] %></h2>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        border: 2px solid black;
+      "
+    >
+      <h2>ID: <%= newData.id %></h2>
+      <h2>Name: <%= newData.name %></h2>
+      <h2>Price: <%= newData.price %></h2>
+      <a href="/">Go Back</a>
     </div>
-    <a href="/">Home</a>
-</body>
+  </body>
 </html>
